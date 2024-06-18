@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital City Quiz</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body id="app">
+  <div class="datetime-container">
+    <span id="datetime"></span>
+  </div>
+
+  <!-- Professional text section -->
+  <section class="professional-text">
+    <h2>Guess the Capital</h2>
+    <p>Test your knowledge of world capitals! Enter the capital city corresponding to the country displayed below.</p>
+  </section>
+
+  <!-- Button container for the top-right buttons -->
+  <div class="button-container">
+    <a href="https://cicrancranci.ro" id="backToHomeBtn">Go to cicrancranci.ro</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">Donate via Wise</button>
+      <div class="dropdown-content">
+        <a href="https://wise.com/pay/r/0Aap1nGSwIIzeVA" id="wiseDonate5Btn">5 EUR</a>
+        <a href="https://wise.com/pay/r/ZkJ_IUQGhLVyPiY" id="wiseDonate10Btn">10 EUR</a>
+        <a href="https://wise.com/pay/r/DBZNebj3wIM2I7I" id="wiseDonate20Btn">20 EUR</a>
+      </div>
+    </div>
+
+    <a href="https://revolut.me/cristivdgk" id="revolutDonateBtn">Donate via Revolut</a>
+  </div>
+
+  <!-- Main game container -->
+  <div class="container">
+    <form action="/submit" method="post">
+      <div class="horizontal-container">
+        <h3>
+          Total Score:
+          <span id="score">
+            <%= locals.totalScore ? totalScore : "0" %>
+          </span>
+        </h3>
+      </div>
+
+      <h1 id="countryName">
+        <%= question.country %>
+      </h1>
+      <div class="answer-container">
+        <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off">
+      </div>
+      <button type="submit">SUBMIT
+        <% if (locals.wasCorrect) { %>
+          <span class="checkmark">✔</span>
+          <% } else if (locals.wasCorrect===false) { %>
+            <span class="cross" id="error">✖</span>
+            <% } %>
+      </button>
+    </form>
+
+    <!-- Contact information and links -->
+    <div class="contact-info">
+      <p>If you have any ideas for improvement or requests, feel free to contact me. You can also find more about me and
+        view my work:</p>
+      <a href="https://www.linkedin.com/in/cristian-andrei-ciuparu-08930a1b7/" target="_blank">LinkedIn</a>
+      <a href="mailto:cicrancranci@gmail.com">Email</a>
+      <a href="https://github.com/CicranCranci" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2024 cicrancranci.ro. All rights reserved.
+  </div>
+
+  <!-- JavaScript to show current date and time -->
+  <script>
+    var wasCorrect = "<%= locals.wasCorrect %>";
+    console.log(wasCorrect);
+    if (wasCorrect === "false") {
+      alert('Game over! Final best score: <%= locals.totalScore %>');
+      document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>';
+    }
+
+    function updateDateTime() {
+      var now = new Date();
+      var dateTimeStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+      document.getElementById('datetime').textContent = dateTimeStr;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000); // Update every second
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

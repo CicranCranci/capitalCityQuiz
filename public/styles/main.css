@@ -1,0 +1,236 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #054b92;
+  --secondary-color: #ffca00;
+  --background-color: rgba(255, 255, 255, 0.7);
+  --text-color: #333;
+  --border-radius: 10px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 800px;
+  margin: 4% auto;
+  /* Reduced top margin */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.answer-container {
+  text-align: center;
+}
+
+input {
+  text-align: center;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: large;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffd500;
+}
+
+.horizontal-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restart-button {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--text-color);
+  padding: 15px 30px;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.datetime-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: var(--background-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.button-container a,
+#wiseDonateCustomBtn {
+  display: block;
+  margin-bottom: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.button-container a:hover,
+#wiseDonateCustomBtn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#wiseDonateCustomBtn {
+  cursor: pointer;
+}
+
+/* Dropdown button */
+.dropbtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--background-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f88783;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Professional text */
+.professional-text {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.contact-info {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-info a:hover {
+  background-color: #f88783;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .professional-text,
+  .contact-info {
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .horizontal-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
